@@ -6,3 +6,7 @@ app.get("/",(req,res)=>{
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
 });
+app.get("/tasks",(req,res)=>{
+    res.send("Here are your tasks");
+    
+});
