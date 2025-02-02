@@ -32,6 +32,7 @@ const toDo = () => {
         {
             console.error("Error saving task",error);
         }
+        window.location.reload();
      }
      function cancelClicked()
      {
