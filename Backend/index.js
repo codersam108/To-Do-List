@@ -34,7 +34,17 @@ app.post("/tasks",async (req,res)=>{
    
     
 });
-
+app.get("/tasks",async (req,res)=>{
+    try{
+        const result=await client.db("toDoList").collection("tasks").find().project({_id:0}).toArray();
+        res.status(200).json(result);
+    }
+    catch(error)
+    {
+        console.error("Error fetching tasks",error);
+        res.status(500).json({message:"Error fetching tasks"});
+    }   
+});
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
 });
