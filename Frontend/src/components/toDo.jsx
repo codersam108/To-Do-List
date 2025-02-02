@@ -1,5 +1,7 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import axios from 'axios';
+
 const toDo = () => {
     const [formData,setFormData] = useState({
         name:'',
@@ -18,7 +20,9 @@ const toDo = () => {
             [name]:value
         }));
     }
-     const saveTask=async()=>{
+     const saveTask=async(event)=>{
+        event.preventDefault();  // Prevent page reload
+
         try{
             await axios.post("http://localhost:3000/tasks",formData);
             alert("Task saved successfully");
