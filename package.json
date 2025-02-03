@@ -6,6 +6,8 @@
     "nodemon": "^3.1.9"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js"
+    
   }
 }
