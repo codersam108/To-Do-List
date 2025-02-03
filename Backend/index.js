@@ -20,7 +20,8 @@ async function connectDB() {
 connectDB();
 
 // Serve the static files from React
-app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+app.use(express.static(path.join(new URL('.', import.meta.url).pathname, '../Frontend/dist')));
+
 
 // API route to add new tasks
 app.post("/tasks", async (req, res) => {
